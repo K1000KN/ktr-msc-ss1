@@ -55,4 +55,8 @@ class Character
   def moveForward
     puts "#{@name}: moves forward"
   end
+
+  def unsheathe
+    puts "#{@name}: unsheathe his weapon."
+  end
 end

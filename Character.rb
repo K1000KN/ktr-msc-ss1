@@ -1,4 +1,5 @@
 require '../Movable.rb'
+
 class Character
   include Movable
 

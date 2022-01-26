@@ -1,4 +1,5 @@
 require '../Character.rb'
+
 class Mage < Character
   def initialize(name)
     @name = name
@@ -13,5 +14,21 @@ class Mage < Character
   def attack(weapon)
     puts "#{@name}: Rrrrrrrrr ...."
     print "#{@name}: Feel the power of my #{weapon}!"
+  end
+
+  def moveRight
+    puts "#{@name}: moves right furtively"
+  end
+
+  def moveLeft
+    puts "#{@name}: moves left furtively"
+  end
+
+  def moveBack
+    puts "#{@name}: moves back furtively"
+  end
+
+  def moveForward
+    puts "#{@name}: moves forward furtively"
   end
 end

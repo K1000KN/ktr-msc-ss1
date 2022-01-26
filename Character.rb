@@ -1,4 +1,7 @@
+require '../Movable.rb'
 class Character
+  include Movable
+
   def initialize(name, rpg_class)
     @name = name
     @life = 50
@@ -34,5 +37,21 @@ class Character
 
   def attack(string)
     print "#{@name}: Rrrrrrrrr ...."
+  end
+
+  def moveRight
+    puts "#{@name}: moves right"
+  end
+
+  def moveLeft
+    puts "#{@name}: moves left"
+  end
+
+  def moveBack
+    puts "#{@name}: moves back"
+  end
+
+  def moveForward
+    puts "#{@name}: moves forward"
   end
 end

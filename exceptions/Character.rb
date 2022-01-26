@@ -1,4 +1,4 @@
-require '../Movable.rb'
+require '../exceptions/Movable.rb'
 
 class Character
   include Movable

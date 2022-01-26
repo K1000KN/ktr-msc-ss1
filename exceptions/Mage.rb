@@ -1,5 +1,5 @@
-require '../Character.rb'
-
+require '../exceptions/Character.rb'
+require '../exceptions/WeaponException.rb'
 class Mage < Character
   def initialize(name)
     @name = name
@@ -12,6 +12,10 @@ class Mage < Character
   end
 
   def attack(weapon)
+    if weapon == ""
+      puts "#{self.name}: I refuse to fight with my bare hands."
+    exit
+    end
     puts "#{@name}: Rrrrrrrrr ...."
     print "#{@name}: Feel the power of my #{weapon}!"
   end
@@ -30,5 +34,20 @@ class Mage < Character
 
   def moveForward
     puts "#{@name}: moves forward furtively"
+  end
+
+  def tryToAttack (weapon)
+    begin
+      if weapon == ""
+        raise WeaponException.new("#{self.name}: I refuse to fight with my bare hands.")
+
+      elsif weapon != "magic"
+        raise WeaponException.new("#{self.name}: I don't need this stupid #{weapon}! Don't misjudge my powers !")
+      end
+
+      attack(weapon)
+    rescue => exception
+      puts exception.message      
+    end
   end
 end

@@ -1,5 +1,5 @@
-require '../Character.rb'
-require '../Movable.rb'
+require '../exceptions/Character.rb'
+require '../exceptions/Movable.rb'
 
 class Warrior < Character
   def initialize(name)
@@ -13,6 +13,10 @@ class Warrior < Character
   end
 
   def attack(weapon)
+    if weapon == ""
+      puts "#{self.name}: I refuse to fight with my bare hands."
+    exit
+    end
     puts "#{@name}: Rrrrrrrrr ...."
     puts "#{@name}: I'll crush you with my #{weapon}!"
   end
@@ -31,6 +35,20 @@ class Warrior < Character
 
   def moveForward
     puts "#{@name}: moves forward like a bad boy."
+  end
+
+  def tryToAttack (weapon)
+    begin
+      if weapon == ""
+        raise WeaponException.new("#{self.name}: I refuse to fight with my bare hands.")
+
+      elsif weapon != "hammer"
+        raise WeaponException.new("#{self.name}: A #{weapon}?? What should I do with this ?!")
+      end
+      attack(weapon)
+    rescue => exception
+      puts exception.message      
+    end
   end
 end
 

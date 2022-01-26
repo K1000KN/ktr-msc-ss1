@@ -1,4 +1,4 @@
-require '../Character.rb'
+require '../exceptions/Character.rb'
 
 module Movable
   def moveRight

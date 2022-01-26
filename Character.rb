@@ -36,8 +36,3 @@ class Character
     print "#{@name}: Rrrrrrrrr ...."
   end
 end
-
- perso = Character.new("Marc", "Guardian")
-
- puts(perso.name, perso.life, perso.agility, perso.strength, perso.wit, perso.rpg_class)
- perso.attack("maincelesteX!!!")
